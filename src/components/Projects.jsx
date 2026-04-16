@@ -10,7 +10,7 @@ const projects = [
     image: "/farmsync.png",
     tech: ["Java", "Spring Boot", "React", "MySQL"],
     github: "#",
-    live: "#"
+    live: "https://farm-sync123.vercel.app"
   },
   {
     title: "FinArena",
