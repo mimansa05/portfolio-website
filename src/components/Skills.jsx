@@ -5,24 +5,24 @@ import styles from './Skills.module.css';
 
 const skillCategories = [
   {
-    title: "Backend & Core",
+    title: "Backend & Systems",
     icon: <Terminal size={24} />,
-    skills: ["Java", "Spring Boot", "REST APIs", "Microservices", "JDBC"]
+    skills: ["Java", "Spring Boot", "REST APIs", "WebSocket", "JWT", "Kafka", "RabbitMQ", "Redis", "Docker"]
   },
   {
-    title: "Data Structures & Algos",
+    title: "Core CS & DSA",
     icon: <Code size={24} />,
-    skills: ["Arrays & Strings", "Trees & Graphs", "Dynamic Programming", "Sorting / Searching", "200+ Leetcode"]
+    skills: ["Data Structures & Algorithms", "OOP", "Operating Systems", "DBMS", "Computer Networks", "TCP/IP", "Distributed Systems"]
   },
   {
-    title: "Database & Tools",
+    title: "Databases & Cloud",
     icon: <Database size={24} />,
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Git / GitHub", "Docker"]
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Query Optimization", "Database Design", "AWS"]
   },
   {
-    title: "Frontend & Web",
+    title: "Frontend & Tools",
     icon: <Globe size={24} />,
-    skills: ["HTML/CSS", "JavaScript", "React", "Vite", "Framer Motion"]
+    skills: ["React", "HTML/CSS", "JavaScript", "Git / GitHub", "Postman", "IntelliJ IDEA", "VS Code", "Maven", "JUnit", "Gradle"]
   }
 ];
 

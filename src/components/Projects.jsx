@@ -5,28 +5,36 @@ import styles from './Projects.module.css';
 
 const projects = [
   {
-    title: "FarmSync",
-    description: "A comprehensive agricultural management platform helping farmers track crops, optimize resource usage, and predict yields using data analytics.",
-    image: "/farmsync.png",
-    tech: ["Java", "Spring Boot", "React", "MySQL"],
-    github: "#",
-    live: "https://farm-sync123.vercel.app"
+    title: "OrbitMQ",
+    description: "A custom TCP/NIO messaging system with a length-prefixed binary protocol, append-only log storage, leader-follower replication, ISR acknowledgements, and consumer-group offset tracking.",
+    image: "/orbitmq.svg",
+    tech: ["Java", "TCP/NIO", "Gradle", "JUnit"],
+    github: "https://github.com/mimansa05/OrbitMQ",
+    live: "#"
+  },
+  {
+    title: "Trace360",
+    description: "A real-time logistics tracking platform with live map-based package tracking, GPS updates, and WebSocket-powered sub-second location refresh for end users.",
+    image: "/Trace360.png",
+    tech: ["Spring Boot", "React", "WebSocket", "JWT", "MySQL/PostgreSQL"],
+    github: "https://github.com/mimansa05",
+    live: "https://trace360.vercel.app"
   },
   {
     title: "FinArena",
-    description: "A gamified financial literacy platform that combines learning modules, quizzes, and interactive games to help users understand and manage finances effectively.",
+    description: "A gamified financial literacy platform that combines learning modules, quizzes, and interactive games to help users understand money management and financial decision-making.",
     image: "/finarena.png",
     tech: ["MongoDB", "Express.js", "React", "Node.js"],
-    github: "#",
+    github: "https://github.com/mimansa05",
     live: "#"
   },
   {
-    title: "Student Management System",
-    description: "A robust desktop application for academic institutions to manage student records, grades, and attendance with advanced filtering and reporting.",
-    image: "/student-management.png",
-    tech: ["Java", "JavaFX", "JDBC", "MySQL"],
-    github: "#",
-    live: "#"
+    title: "FarmSync",
+    description: "An agricultural analytics platform focused on expense tracking, farmer insights, and data visualization to improve efficiency for smallholder farming operations.",
+    image: "/farmsync.png",
+    tech: ["Java", "Spring Boot", "React", "MySQL"],
+    github: "https://github.com/mimansa05",
+    live: "https://farm-sync123.vercel.app"
   }
 ];
 

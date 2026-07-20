@@ -25,7 +25,7 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Mimansa Sharma | CS Student | 9.4 CGPA
+            Mimansa Sharma | Backend Developer Intern | 9.4 CGPA
           </motion.div>
 
           <motion.h1 
@@ -34,8 +34,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Building systems. <br />
-            Solving problems. <span className="text-gradient">Delivering impact.</span>
+            Building backend systems. <br />
+            Solving complex problems. <span className="text-gradient">Creating impact.</span>
           </motion.h1>
 
           <motion.p 
@@ -44,10 +44,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            I'm a passionate developer with a versatile skill set across the stack. With a strong 
-            foundation in Data Structures and Algorithms (200+ LeetCode problems solved), I focus on 
-            building scalable applications and writing clean, efficient code to bridge complex problems 
-            with impactful solutions.
+            I’m a Computer Science undergraduate at BMS College of Engineering with hands-on experience in Java, Spring Boot, REST APIs, SQL, Docker, AWS, Redis, and Kafka. I enjoy building scalable, reliable systems and have solved 500+ problems on LeetCode with a strong foundation in DSA, OOP, DBMS, OS, and computer networks.
           </motion.p>
 
           <motion.div 

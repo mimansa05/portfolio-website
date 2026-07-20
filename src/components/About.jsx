@@ -32,10 +32,7 @@ const About = () => {
             </div>
             <h3>My Background</h3>
             <p>
-              I am a second-year Computer Science student currently in my fourth semester at 
-              BMS College of Engineering, Bangalore, with a strong academic record (CGPA: 9.4). 
-              I am passionate about building scalable software systems and solving real-world problems 
-              through efficient and clean code.
+              I am a Computer Science undergraduate in my fourth semester at BMS College of Engineering, Bangalore, with a strong academic record (CGPA: 9.4/10). My academic foundation is reinforced by practical internship experience in backend development and system design.
             </p>
           </motion.div>
 
@@ -51,9 +48,7 @@ const About = () => {
             </div>
             <h3>Problem Solving & Tech</h3>
             <p>
-              I have a strong foundation in Data Structures & Algorithms and actively practice 
-              problem-solving, having solved 200+ problems on LeetCode. I enjoy exploring system 
-              design concepts and continuously improving my development skills.
+              I have a strong grip on Data Structures & Algorithms and have solved 500+ problems on LeetCode, with a contest rating of 1578. I enjoy exploring system design concepts, distributed systems, and writing efficient, production-ready code.
             </p>
           </motion.div>
 
@@ -69,9 +64,7 @@ const About = () => {
             </div>
             <h3>Professional Drive</h3>
             <p>
-              Currently, I am gaining industry experience as a Java Backend Developer Intern, where 
-              I work on building and optimizing REST APIs using Java and Spring Boot. I am always 
-              eager to learn, build, and contribute to impactful tech solutions.
+              Currently, I am building industry-ready backend experience as a Backend Developer Intern at OneTappe, where I work on scalable APIs, database optimization, event-driven systems, and cloud deployment. I’m always eager to learn, contribute, and grow in impactful engineering teams.
             </p>
           </motion.div>
 

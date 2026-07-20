@@ -40,6 +40,16 @@ const Contact = () => {
 
             <div className={styles.infoCard}>
               <div className={styles.iconWrapper}>
+                <Phone />
+              </div>
+              <div>
+                <h3>Call Me</h3>
+                <p>+91 74520 66099</p>
+              </div>
+            </div>
+
+            <div className={styles.infoCard}>
+              <div className={styles.iconWrapper}>
                 <MapPin />
               </div>
               <div>

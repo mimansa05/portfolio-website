@@ -33,7 +33,7 @@ const Navbar = () => {
           className={styles.logo}
         >
           <Code className={styles.logoIcon} />
-          <span className="text-gradient">Portfolio</span>
+          <span className="text-gradient">Mimansa</span>
         </motion.div>
 
         {/* Desktop Nav */}
