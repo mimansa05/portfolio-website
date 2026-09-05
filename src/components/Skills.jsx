@@ -1,88 +1,114 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Database, Code, Globe, Layout, Server, Cpu } from 'lucide-react';
+import Slide from './Slide';
 import styles from './Skills.module.css';
 
-const skillCategories = [
+const categories = [
   {
-    title: "Backend & Systems",
-    icon: <Terminal size={24} />,
-    skills: ["Java", "Spring Boot", "REST APIs", "WebSocket", "JWT", "Kafka", "RabbitMQ", "Redis", "Docker"]
+    title: 'Languages',
+    tone: 'crimson',
+    skills: ['Java', 'C', 'Python', 'JavaScript', 'SQL'],
   },
   {
-    title: "Core CS & DSA",
-    icon: <Code size={24} />,
-    skills: ["Data Structures & Algorithms", "OOP", "Operating Systems", "DBMS", "Computer Networks", "TCP/IP", "Distributed Systems"]
+    title: 'Core CS',
+    tone: 'teal',
+    skills: [
+      'DSA',
+      'OOP',
+      'DBMS',
+      'Operating Systems',
+      'Computer Networks',
+      'System Design',
+      'Distributed Systems',
+    ],
   },
   {
-    title: "Databases & Cloud",
-    icon: <Database size={24} />,
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Query Optimization", "Database Design", "AWS"]
+    title: 'Frontend',
+    tone: 'mustard',
+    skills: ['React', 'JavaScript', 'HTML / CSS', 'REST Integration'],
   },
   {
-    title: "Frontend & Tools",
-    icon: <Globe size={24} />,
-    skills: ["React", "HTML/CSS", "JavaScript", "Git / GitHub", "Postman", "IntelliJ IDEA", "VS Code", "Maven", "JUnit", "Gradle"]
-  }
+    title: 'Backend',
+    tone: 'crimson',
+    skills: [
+      'Spring Boot',
+      'Node.js',
+      'FastAPI',
+      'REST APIs',
+      'Spring MVC',
+      'JPA',
+      'JWT Auth',
+      'WebSocket',
+    ],
+  },
+  {
+    title: 'Databases',
+    tone: 'teal',
+    skills: [
+      'PostgreSQL',
+      'MySQL',
+      'MongoDB',
+      'Database Design',
+      'Query Optimization',
+    ],
+  },
+  {
+    title: 'Distributed & Messaging',
+    tone: 'mustard',
+    skills: ['Kafka', 'RabbitMQ', 'Redis', 'TCP/IP'],
+  },
+  {
+    title: 'Cloud & DevOps',
+    tone: 'crimson',
+    skills: ['AWS', 'Docker', 'Git', 'GitHub'],
+  },
+  {
+    title: 'Tools & Testing',
+    tone: 'teal',
+    skills: ['JUnit', 'Gradle', 'Maven', 'Postman', 'IntelliJ IDEA', 'VS Code'],
+  },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 },
-  visible: { opacity: 1, scale: 1, y: 0 }
-};
-
-const Skills = () => {
-  return (
-    <section id="skills" className={styles.skillsSection}>
-      <div className="container">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className={styles.header}
-        >
-          <h2 className="section-title">
-            My <span className="text-gradient">Skill Arsenal</span>
-          </h2>
-          <p className={styles.subtitle}>
-            A comprehensive overview of my technical expertise, from building robust backend architectures to mastering algorithmic problem-solving.
-          </p>
-        </motion.div>
-
-        <motion.div 
-          className={styles.grid}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          {skillCategories.map((category, idx) => (
-            <motion.div key={idx} variants={itemVariants} className={`${styles.card} glass`}>
-              <div className={styles.cardHeader}>
-                <div className={styles.iconWrapper}>
-                  {category.icon}
-                </div>
-                <h3>{category.title}</h3>
-              </div>
-              <div className={styles.skillsList}>
-                {category.skills.map((skill, sIdx) => (
-                  <span key={sIdx} className={styles.skillPill}>{skill}</span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+const Skills = () => (
+  <Slide id="skills" page="04" nextHref="#experience">
+    <div className={styles.grid}>
+      <div className={styles.intro}>
+        <h2 className="stack">
+          <span className="script">personal</span>
+          <span className="display">Skills</span>
+        </h2>
+        <p className="lead">
+          What I reach for, from the interface down to the storage engine. Most
+          fluent in Java and Spring Boot, comfortable in React and Python, and
+          deliberate about the computer science underneath all of it.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className={styles.cards}>
+        {categories.map((category, i) => (
+          <motion.article
+            key={category.title}
+            className={`plate ${styles.card}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: (i % 3) * 0.08, duration: 0.45 }}
+          >
+            <h3 className={`${styles.cardTitle} ${styles[category.tone]}`}>
+              {category.title}
+            </h3>
+            <div className={styles.chips}>
+              {category.skills.map((skill) => (
+                <span key={skill} className="chip">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </motion.article>
+        ))}
+      </div>
+    </div>
+  </Slide>
+);
 
 export default Skills;

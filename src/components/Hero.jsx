@@ -1,94 +1,116 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Code, User, Mail } from 'lucide-react';
+import { ArrowRight, Download, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './BrandIcons';
+import Slide from './Slide';
 import styles from './Hero.module.css';
 
-const Hero = () => {
-  return (
-    <section id="home" className={styles.heroSection}>
-      {/* Background Gradient Orbs */}
-      <div className={styles.blob1}></div>
-      <div className={styles.blob2}></div>
-      
-      <div className={`container ${styles.heroContainer}`}>
-        
-        {/* Left Side: Text Content */}
-        <motion.div 
-          className={styles.textContent}
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div 
-            className={`badge ${styles.badge}`}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Mimansa Sharma | Backend Developer Intern | 9.4 CGPA
-          </motion.div>
-
-          <motion.h1 
-            className={styles.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            Building backend systems. <br />
-            Solving complex problems. <span className="text-gradient">Creating impact.</span>
-          </motion.h1>
-
-          <motion.p 
-            className={styles.subtitle}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            I’m a Computer Science undergraduate at BMS College of Engineering with hands-on experience in Java, Spring Boot, REST APIs, SQL, Docker, AWS, Redis, and Kafka. I enjoy building scalable, reliable systems and have solved 500+ problems on LeetCode with a strong foundation in DSA, OOP, DBMS, OS, and computer networks.
-          </motion.p>
-
-          <motion.div 
-            className={styles.actionBtns}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <a href="#projects" className="btn btn-primary">
-              View Projects <ArrowRight size={18} />
-            </a>
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="btn btn-outline">
-              Resume PDF <Download size={18} />
-            </a>
-          </motion.div>
-
-          <motion.div 
-            className={styles.socials}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            <a href="https://github.com/mimansa05" target="_blank" rel="noreferrer" className={styles.socialIcon}><Code size={20} /> <span className={styles.socialText}>GitHub</span></a>
-            <a href="https://www.linkedin.com/in/mimansa-sharma-806459268/" target="_blank" rel="noreferrer" className={styles.socialIcon}><User size={20} /> <span className={styles.socialText}>LinkedIn</span></a>
-            <a href="mailto:mimansasharma308@gmail.com" className={styles.socialIcon}><Mail size={20} /> <span className={styles.socialText}>Email</span></a>
-          </motion.div>
-        </motion.div>
-
-        {/* Right Side: Profile Image */}
-        <motion.div 
-          className={styles.imageContent}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className={styles.imageWrapper}>
-            <div className={styles.imageGlow}></div>
-            <img src="/profile.png" alt="Mimansa Sharma" className={styles.profileImage} />
-          </div>
-        </motion.div>
-
-      </div>
-    </section>
-  );
+const rise = {
+  hidden: { opacity: 0, y: 22 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.12 + i * 0.09, duration: 0.6, ease: [0.2, 0.7, 0.3, 1] },
+  }),
 };
+
+const Hero = () => (
+  <Slide
+    id="home"
+    brand="Software Engineer"
+    topRight="dots"
+    footLeft="mimansasharma308@gmail.com"
+    nextHref="#contents"
+    className={styles.cover}
+  >
+    <div className={styles.inner}>
+      <motion.h1
+        className="stack stackCenter"
+        variants={rise}
+        initial="hidden"
+        animate="visible"
+      >
+        <span className="script">hello, i&apos;m</span>
+        <span className={`display ${styles.name}`}>Mimansa Sharma</span>
+      </motion.h1>
+
+      <motion.p
+        className="boxCaption"
+        variants={rise}
+        initial="hidden"
+        animate="visible"
+        custom={1}
+      >
+        Software Engineer &middot; Bangalore
+      </motion.p>
+
+      <motion.p
+        className="lead leadCenter"
+        variants={rise}
+        initial="hidden"
+        animate="visible"
+        custom={2}
+      >
+        Computer Science undergraduate at B.M.S. College of Engineering who
+        builds software end to end — APIs and distributed services, the React
+        interfaces on top of them, and the data layer underneath. 500+ problems
+        solved, and a CS foundation to match.
+      </motion.p>
+
+      <motion.div
+        className={styles.actions}
+        variants={rise}
+        initial="hidden"
+        animate="visible"
+        custom={3}
+      >
+        <a href="#projects" className="blockBtn bCrimson btnAuto">
+          View Projects <ArrowRight size={17} />
+        </a>
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="blockBtn bTeal btnAuto"
+        >
+          Resume PDF <Download size={17} />
+        </a>
+        <a href="#contact" className="blockBtn bMustard btnAuto">
+          Get in Touch
+        </a>
+      </motion.div>
+
+      <motion.div
+        className={styles.socials}
+        variants={rise}
+        initial="hidden"
+        animate="visible"
+        custom={4}
+      >
+        <a
+          href="https://github.com/mimansa05"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.social}
+        >
+          <GithubIcon size={17} /> GitHub
+        </a>
+        <span className={styles.sep} aria-hidden="true" />
+        <a
+          href="https://www.linkedin.com/in/mimansa-sharma-806459268/"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.social}
+        >
+          <LinkedinIcon size={17} /> LinkedIn
+        </a>
+        <span className={styles.sep} aria-hidden="true" />
+        <a href="mailto:mimansasharma308@gmail.com" className={styles.social}>
+          <Mail size={17} /> Email
+        </a>
+      </motion.div>
+    </div>
+  </Slide>
+);
 
 export default Hero;

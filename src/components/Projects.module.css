@@ -1,143 +1,123 @@
-.projectsSection {
-  background: var(--bg-secondary);
-}
-
-.header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 4rem auto;
-}
-
-.subtitle {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.card {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: transform var(--transition-normal);
+.head {
   display: flex;
   flex-direction: column;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.imageContainer {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.card:hover .image {
-  transform: scale(1.1);
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 23, 42, 0.8);
-  display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
+  gap: 1.25rem;
+  text-align: center;
 }
 
-.card:hover .overlay {
-  opacity: 1;
+.rule {
+  margin: clamp(1.75rem, 4vw, 2.5rem) 0;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(0.6rem, 1.4vw, 1rem);
+}
+
+.tab {
+  padding-inline: 0.75rem;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.72rem, 1vw, 0.9rem);
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  align-items: start;
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.shot {
+  margin: 0;
+  padding: clamp(0.75rem, 1.6vw, 1rem);
+}
+
+.shot img {
+  width: 100%;
+  /* Matches the ~16:9 project screenshots so nothing important is cropped. */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 2px;
+  background: var(--cream-2);
+}
+
+.crimson {
+  background: var(--crimson);
+}
+.teal {
+  background: var(--teal);
+}
+.mustard {
+  background: var(--mustard);
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-top: -0.15rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: clamp(0.88rem, 1.1vw, 0.98rem);
+  line-height: 1.65;
+}
+
+.points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--crimson);
 }
 
 .links {
   display: flex;
-  gap: 1rem;
-  transform: translateY(20px);
-  transition: transform var(--transition-normal);
-}
-
-.card:hover .links {
-  transform: translateY(0);
-}
-
-.iconLink {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-full);
-  background: var(--accent-primary);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--transition-fast);
-}
-
-.iconLink:hover {
-  background: var(--accent-secondary);
-}
-
-.content {
-  padding: 1.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.titleRow {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.projectIcon {
-  color: var(--accent-secondary);
-}
-
-.content h3 {
-  font-size: 1.3rem;
-  color: var(--text-primary);
-}
-
-.description {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  flex: 1;
-}
-
-.techStack {
-  display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 980px) {
+  .tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

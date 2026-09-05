@@ -1,100 +1,182 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
+import { GithubIcon } from './BrandIcons';
+import Slide from './Slide';
 import styles from './Projects.module.css';
 
 const projects = [
   {
-    title: "OrbitMQ",
-    description: "A custom TCP/NIO messaging system with a length-prefixed binary protocol, append-only log storage, leader-follower replication, ISR acknowledgements, and consumer-group offset tracking.",
-    image: "/orbitmq.svg",
-    tech: ["Java", "TCP/NIO", "Gradle", "JUnit"],
-    github: "https://github.com/mimansa05/OrbitMQ",
-    live: "#"
+    title: 'OrbitMQ',
+    tagline: 'A message broker written from the socket up',
+    tone: 'crimson',
+    image: '/orbitmq.svg',
+    tech: ['Java', 'TCP/NIO', 'Gradle', 'JUnit'],
+    github: 'https://github.com/mimansa05/OrbitMQ',
+    live: null,
+    points: [
+      'Designed a custom binary protocol using length-prefixing over TCP for low-latency producer and consumer exchange, bypassing standard overhead.',
+      'Built a partitioned storage engine on append-only logs with offset indexing and persistent segments for high-durability messaging.',
+      'Orchestrated fault-tolerant leader-follower replication with automatic failover and ISR-style acknowledgement logic.',
+      'Added consumer group offset management for at-least-once delivery and parallel consumption progress tracking.',
+    ],
   },
   {
-    title: "Trace360",
-    description: "A real-time logistics tracking platform with live map-based package tracking, GPS updates, and WebSocket-powered sub-second location refresh for end users.",
-    image: "/Trace360.png",
-    tech: ["Spring Boot", "React", "WebSocket", "JWT", "MySQL/PostgreSQL"],
-    github: "https://github.com/mimansa05",
-    live: "https://trace360.vercel.app"
+    title: 'FailSafe-AI',
+    tagline: 'Safety benchmarking for AI agents',
+    tone: 'teal',
+    image: '/failsafe.jpeg',
+    tech: ['React', 'Python', 'FastAPI', 'PostgreSQL', 'WebSocket'],
+    github: 'https://github.com/mimansa05',
+    live: null,
+    points: [
+      'Engineered a safety benchmarking framework for AI agents, prioritising automated behaviour assessment and adversarial threat benchmarking.',
+      'Built backend infrastructure for multi-turn testing cycles, real-time execution tracing and automated diagnostic analysis.',
+      'Constructed an integrated dashboard for safety performance metrics, agent response patterns and live scenario progression.',
+      'Delivered safety audits and data-driven insights to mitigate vulnerabilities and improve system-wide reliability.',
+    ],
   },
   {
-    title: "FinArena",
-    description: "A gamified financial literacy platform that combines learning modules, quizzes, and interactive games to help users understand money management and financial decision-making.",
-    image: "/finarena.png",
-    tech: ["MongoDB", "Express.js", "React", "Node.js"],
-    github: "https://github.com/mimansa05",
-    live: "#"
+    title: 'Trace360',
+    tagline: 'Live logistics tracking, sub-second',
+    tone: 'mustard',
+    image: '/Trace360.png',
+    tech: ['Spring Boot', 'React', 'WebSocket', 'JWT', 'PostgreSQL'],
+    github: 'https://github.com/mimansa05',
+    live: 'https://trace360.vercel.app',
+    points: [
+      'Real-time logistics platform with live map-based package tracking and continuous GPS updates.',
+      'WebSocket-powered location refresh that lands under a second for end users.',
+      'High-concurrency data handling across the tracking pipeline, built during the Infyntrek internship.',
+    ],
   },
   {
-    title: "FarmSync",
-    description: "An agricultural analytics platform focused on expense tracking, farmer insights, and data visualization to improve efficiency for smallholder farming operations.",
-    image: "/farmsync.png",
-    tech: ["Java", "Spring Boot", "React", "MySQL"],
-    github: "https://github.com/mimansa05",
-    live: "https://farm-sync123.vercel.app"
-  }
+    title: 'FarmSync',
+    tagline: 'Analytics for smallholder farming',
+    tone: 'crimson',
+    image: '/farmsync.png',
+    tech: ['Java', 'Spring Boot', 'React', 'MySQL'],
+    github: 'https://github.com/mimansa05',
+    live: 'https://farm-sync123.vercel.app',
+    points: [
+      'Agricultural analytics platform covering expense tracking and farmer insights.',
+      'Core server-side modules and REST APIs powering the management ecosystem.',
+      'Data visualisation aimed at improving day-to-day efficiency for smallholder operations.',
+    ],
+  },
+  {
+    title: 'FinArena',
+    tagline: 'Financial literacy, gamified',
+    tone: 'teal',
+    image: '/finarena.png',
+    tech: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+    github: 'https://github.com/mimansa05',
+    live: null,
+    points: [
+      'Gamified financial literacy platform combining learning modules, quizzes and interactive games.',
+      'Progress tracking and scoring that reinforce money-management concepts as users play.',
+    ],
+  },
 ];
 
+const tones = ['bCrimson', 'bTeal', 'bMustard'];
+
 const Projects = () => {
+  const [active, setActive] = useState(0);
+  const project = projects[active];
+
   return (
-    <section id="projects" className={styles.projectsSection}>
-      <div className="container">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className={styles.header}
-        >
-          <h2 className="section-title">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <p className={styles.subtitle}>
-            A selection of my recent full-stack and backend engineering work.
-          </p>
-        </motion.div>
-
-        <div className={styles.grid}>
-          {projects.map((project, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ delay: idx * 0.1 }}
-              className={`${styles.card} glass`}
-            >
-              <div className={styles.imageContainer}>
-                <img src={project.image} alt={project.title} className={styles.image} />
-                <div className={styles.overlay}>
-                  <div className={styles.links}>
-                    <a href={project.github} className={styles.iconLink}><Code size={20} /></a>
-                    <a href={project.live} className={styles.iconLink}><ExternalLink size={20} /></a>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.content}>
-                <div className={styles.titleRow}>
-                  <Code className={styles.projectIcon} />
-                  <h3>{project.title}</h3>
-                </div>
-                
-                <p className={styles.description}>{project.description}</p>
-                
-                <div className={styles.techStack}>
-                  {project.tech.map((tech, tIdx) => (
-                    <span key={tIdx} className="badge">{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+    <Slide id="projects" page="06" nextHref="#achievements">
+      <div className={styles.head}>
+        <h2 className="stack stackCenter">
+          <span className="script">project</span>
+          <span className="display">Portfolio</span>
+        </h2>
+        <p className="lead leadCenter">
+          Full-stack products and low-level systems, each designed and shipped
+          end to end. Pick one to read what it does and how it is put together.
+        </p>
       </div>
-    </section>
+
+      <hr className={`hr ${styles.rule}`} />
+
+      <div className={styles.tabs} role="tablist" aria-label="Projects">
+        {projects.map((item, i) => (
+          <button
+            key={item.title}
+            type="button"
+            role="tab"
+            id={`tab-${i}`}
+            aria-selected={active === i}
+            aria-controls="project-panel"
+            className={`blockBtn ${
+              active === i ? tones[i % tones.length] : 'bPlain'
+            } ${styles.tab}`}
+            onClick={() => setActive(i)}
+          >
+            {String(i + 1).padStart(2, '0')} {item.title}
+          </button>
+        ))}
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={project.title}
+          id="project-panel"
+          role="tabpanel"
+          aria-labelledby={`tab-${active}`}
+          className={styles.panel}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.32 }}
+        >
+          <figure className={`plate ${styles.shot} ${styles[project.tone]}`}>
+            <img src={project.image} alt={`${project.title} preview`} />
+          </figure>
+
+          <div className={styles.detail}>
+            <span className="kicker">{project.tagline}</span>
+            <h3 className={styles.title}>{project.title}</h3>
+
+            <div className={styles.chips}>
+              {project.tech.map((tech) => (
+                <span key={tech} className="chip">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <ul className={styles.points}>
+              {project.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+
+            <div className={styles.links}>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="blockBtn bPlain btnAuto"
+              >
+                <GithubIcon size={16} /> Source
+              </a>
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="blockBtn bCrimson btnAuto"
+                >
+                  <ExternalLink size={16} /> Live
+                </a>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </Slide>
   );
 };
 

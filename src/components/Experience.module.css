@@ -1,149 +1,106 @@
-.header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 4rem auto;
-}
-
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Timeline vertical line */
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 20px;
-  width: 2px;
-  background: rgba(139, 92, 246, 0.2);
-  border-radius: 2px;
-}
-
-@media (min-width: 768px) {
-  .timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.timelineItem {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 60px;
-}
-
-@media (min-width: 768px) {
-  .timelineItem {
-    padding-left: 0;
-    width: 50%;
-  }
-
-  .timelineItem:nth-child(odd) {
-    padding-right: 40px;
-    text-align: right;
-  }
-
-  .timelineItem:nth-child(even) {
-    margin-left: auto;
-    padding-left: 40px;
-  }
-}
-
-.iconCircle {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--bg-tertiary);
-  border: 4px solid var(--bg-primary);
-  color: var(--accent-primary);
+.head {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  z-index: 10;
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  gap: 1.25rem;
+  text-align: center;
 }
 
-@media (min-width: 768px) {
-  .iconCircle {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.itemContent {
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255,255,255,0.05);
-  background: rgba(255, 255, 255, 0.02);
-  transition: transform 0.3s ease;
-}
-
-.timelineItem:hover .itemContent {
-  transform: translateY(-3px);
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-@media (min-width: 768px) {
-  .timelineItem:nth-child(odd) .list {
-    align-items: flex-end;
-    text-align: right;
-  }
-}
-
-.dateBadge, .categoryBadge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: rgba(139, 92, 246, 0.15);
-  color: var(--accent-primary);
-  border-radius: var(--radius-full);
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.categoryBadge {
-  background: rgba(6, 182, 212, 0.15);
-  color: var(--accent-secondary);
-}
-
-.itemTitle {
-  font-size: 1.25rem;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
+.rule {
+  margin: clamp(1.75rem, 4vw, 2.75rem) 0;
 }
 
 .list {
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(1.15rem, 2.5vw, 1.75rem);
 }
 
-.list li {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.5;
+.card {
+  background: var(--cream-2);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+
+.card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.tab {
   display: flex;
-  gap: 0.5rem;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.6rem clamp(1rem, 2.5vw, 1.6rem);
+  border-bottom: var(--stroke) solid var(--ink);
+  font-family: var(--font-cond);
+  font-weight: 500;
+  font-size: clamp(0.72rem, 1.05vw, 0.85rem);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
-@media (min-width: 768px) {
-  .timelineItem:nth-child(odd) .list li {
-    flex-direction: row-reverse;
-  }
+.crimson {
+  background: var(--crimson);
+  color: #fff;
+}
+.teal {
+  background: var(--teal);
+  color: #fff;
 }
 
-.checkIcon {
-  color: var(--accent-secondary);
-  flex-shrink: 0;
-  margin-top: 3px;
+.period {
+  font-weight: 600;
+}
+
+.place {
+  opacity: 0.85;
+}
+
+.body {
+  padding: clamp(1.1rem, 2.5vw, 1.75rem) clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.company {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.role {
+  font-family: var(--font-cond);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--crimson);
+  margin-top: 0.35rem;
+}
+
+.points {
+  list-style: none;
+  margin-top: clamp(0.9rem, 2vw, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: clamp(0.88rem, 1.1vw, 0.98rem);
+  line-height: 1.65;
+}
+
+.points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink);
 }
