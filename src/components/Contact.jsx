@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import Slide from './Slide';
 import styles from './Contact.module.css';
@@ -13,18 +13,11 @@ const details = [
     tone: 'crimson',
   },
   {
-    icon: Phone,
-    label: 'Phone',
-    value: '+91 74520 66099',
-    href: 'tel:+917452066099',
-    tone: 'teal',
-  },
-  {
     icon: MapPin,
     label: 'Location',
     value: 'Bangalore, India',
     href: null,
-    tone: 'mustard',
+    tone: 'teal',
   },
 ];
 
