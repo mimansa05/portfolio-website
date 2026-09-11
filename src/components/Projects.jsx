@@ -12,7 +12,7 @@ const projects = [
     tone: 'crimson',
     image: '/orbitmq.svg',
     tech: ['Java', 'TCP/NIO', 'Gradle', 'JUnit'],
-    github: 'https://github.com/mimansa05/OrbitMQ',
+    github: 'https://github.com/mimansa05/orbit-mq',
     live: null,
     points: [
       'Designed a custom binary protocol using length-prefixing over TCP for low-latency producer and consumer exchange, bypassing standard overhead.',
@@ -27,7 +27,7 @@ const projects = [
     tone: 'teal',
     image: '/failsafe.jpeg',
     tech: ['React', 'Python', 'FastAPI', 'PostgreSQL', 'WebSocket'],
-    github: 'https://github.com/mimansa05',
+    github: 'https://github.com/mimansa05/FAIL_SAFE_AI',
     live: null,
     points: [
       'Engineered a safety benchmarking framework for AI agents, prioritising automated behaviour assessment and adversarial threat benchmarking.',
@@ -42,7 +42,7 @@ const projects = [
     tone: 'mustard',
     image: '/Trace360.png',
     tech: ['Spring Boot', 'React', 'WebSocket', 'JWT', 'PostgreSQL'],
-    github: 'https://github.com/mimansa05',
+    github: 'https://github.com/mimansa05/trace360',
     live: 'https://trace360.vercel.app',
     points: [
       'Real-time logistics platform with live map-based package tracking and continuous GPS updates.',
@@ -56,7 +56,7 @@ const projects = [
     tone: 'crimson',
     image: '/farmsync.png',
     tech: ['Java', 'Spring Boot', 'React', 'MySQL'],
-    github: 'https://github.com/mimansa05',
+    github: 'https://github.com/mimansa05/FarmSync123',
     live: 'https://farm-sync123.vercel.app',
     points: [
       'Agricultural analytics platform covering expense tracking and farmer insights.',
@@ -70,7 +70,7 @@ const projects = [
     tone: 'teal',
     image: '/finarena.png',
     tech: ['MongoDB', 'Express.js', 'React', 'Node.js'],
-    github: 'https://github.com/mimansa05',
+    github: 'https://github.com/mimansa05/finarena',
     live: null,
     points: [
       'Gamified financial literacy platform combining learning modules, quizzes and interactive games.',
